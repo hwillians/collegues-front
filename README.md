@@ -1,5 +1,9 @@
 # ColleguesFront
 
+[![Build Status](https://travis-ci.org/hwillians/collegues-front.svg?branch=master)](https://travis-ci.org/hwillians/collegues-front)
+
+https://hwillians.github.io/collegues-front/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
 ## Development server
