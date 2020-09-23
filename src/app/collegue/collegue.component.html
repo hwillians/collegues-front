@@ -1,10 +1,10 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-3">
-            <img [src]="col.photoUrl" class="img-thumbnail float-right" alt="photo colaborateur" height="300"
+<div class="container ">
+    <div class="row ">
+        <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
+            <img [src]="col.photoUrl" class="img-thumbnail" alt="photo colaborateur" height="300"
                 width="300">
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-7">
             <table class="table table-hover">
                 <tbody>
                     <tr>
@@ -25,15 +25,15 @@
                     </tr>
                     <tr>
                         <td>E-mail : </td>
-                        <td [hidden]="mailHid">{{col.email}}</td>
-                        <td [hidden]="inputHid">
-                            <input type="text">
+                        <td [hidden]="affichage">{{col.email}}</td>
+                        <td [hidden]="!affichage">
+                            <input type="text" [value]="col.email">
                         </td>
                     </tr>
-                    <tr [hidden]="urlHid">
+                    <tr [hidden]="!affichage">
                         <td>Url de la Photo : </td>
-                        <td >
-                            <input type="text">
+                        <td>
+                            <input type="text" [value]="col.photoUrl">
                         </td>
                     </tr>
 
@@ -41,16 +41,16 @@
             </table>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <a href="#" class="stretched-link float-right" (click)="creerCollegue()"> Créer un nouveau
-                Collegue </a>
+    <div class="row d-flex justify-content-around align-items-center mb-3">
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+            <a href="#" class="stretched-link " (click)="creerCollegue()" [hidden]="affichage"> Créer un
+                nouveau Collegue </a>
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-light float-left" (click)="modifierCollegue()"
-                [hidden]="modifHid">Modifier</button>
-            <button type="button" class="btn btn-light float-left" (click)="valider()"
-                [hidden]="validHid">Valider</button>
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+             <button type="button" class="btn btn-light " (click)="modifierCollegue()"
+                [hidden]="affichage">Modifier</button>
+            <button type="button" class="btn btn-light " (click)="valider()"
+                [hidden]="!affichage">Valider</button>
         </div>
     </div>
 </div>

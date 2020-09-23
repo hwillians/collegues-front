@@ -1,3 +1,13 @@
-
-<app-collegue [col]="collegueMock"></app-collegue>
-
+<div class="container-fluid bg-info text-white">
+    <div class="row justify-content-center">
+        <h1>Administration Collegue</h1>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
+        </div>
+        <div class="col-12 col-md-7">
+            <app-collegue [col]="collegueMock"></app-collegue>
+        </div>
+    </div>
+</div>
