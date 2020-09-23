@@ -13,15 +13,32 @@ export class CollegueComponent implements OnInit {
   @Input() col: Collegue
 
   constructor() { }
+  modifHid : boolean = false
+  validHid : boolean = true
+  mailHid : boolean = false
+  inputHid : boolean = true
+  urlHid = true 
 
   modifierCollegue(): void {
-    console.log('Modification du collègue')
+  
+    this.modifHid = !this.modifHid
+    this.validHid = !this.validHid
+    this.mailHid = !this.mailHid
+    this.inputHid=!this.inputHid
+    this.urlHid=!this.urlHid
   }
 
   creerCollegue():void{
-    console.log('Création d’un nouveau collègue')
+    alert('Création d’un nouveau collègue')
   }
 
+  valider(){
+    this.modifHid = !this.modifHid
+    this.validHid = !this.validHid
+    this.mailHid = !this.mailHid
+    this.inputHid=!this.inputHid
+    this.urlHid=!this.urlHid
+  }
 
   ngOnInit(): void {
   }

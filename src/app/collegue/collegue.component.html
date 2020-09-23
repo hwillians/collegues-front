@@ -1,42 +1,56 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-3">
-            <img [src]="col.photoUrl" class="img-thumbnail float-right" alt="..." height="300" width="300">
+            <img [src]="col.photoUrl" class="img-thumbnail float-right" alt="photo colaborateur" height="300"
+                width="300">
         </div>
         <div class="col-6">
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <td>matricule : </td>
+                        <td>Matricule : </td>
                         <td>{{col.matricule}}</td>
                     </tr>
                     <tr>
-                        <td>nom : </td>
-                        <td>{{col.nom}}</td>
+                        <td>Nom : </td>
+                        <td>{{col.nom | uppercase}}</td>
                     </tr>
                     <tr>
-                        <td>prenoms: </td>
+                        <td>Prénoms : </td>
                         <td>{{col.prenoms}}</td>
                     </tr>
                     <tr>
-                        <td>email: </td>
-                        <td>{{col.email}}</td>
-                    </tr>
-                    <tr>
-                        <td>Date de Naissance : </td>
+                        <td>Date de naissance : </td>
                         <td>{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
                     </tr>
+                    <tr>
+                        <td>E-mail : </td>
+                        <td [hidden]="mailHid">{{col.email}}</td>
+                        <td [hidden]="inputHid">
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr [hidden]="urlHid">
+                        <td>Url de la Photo : </td>
+                        <td >
+                            <input type="text">
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <a href="javascript:void(0)" class="stretched-link float-right" (click)="creerCollegue()"> Créer un nouveau
+            <a href="#" class="stretched-link float-right" (click)="creerCollegue()"> Créer un nouveau
                 Collegue </a>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-light float-left" (click)="modifierCollegue()">Modifier</button>
+            <button type="button" class="btn btn-light float-left" (click)="modifierCollegue()"
+                [hidden]="modifHid">Modifier</button>
+            <button type="button" class="btn btn-light float-left" (click)="valider()"
+                [hidden]="validHid">Valider</button>
         </div>
     </div>
 </div>
