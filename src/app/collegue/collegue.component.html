@@ -1,26 +1,42 @@
 <div class="container">
-    <div class="row justify-content-md-center">
-    <div class="col-3">
-        <figure class="figure">
-            <img src="{{col.photoUrl}}" class="figure-img img-fluid rounded" alt="..." height="200" width="200">
-            <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
-        </figure>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <img [src]="col.photoUrl" class="img-thumbnail float-right" alt="..." height="300" width="300">
+        </div>
+        <div class="col-6">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>matricule : </td>
+                        <td>{{col.matricule}}</td>
+                    </tr>
+                    <tr>
+                        <td>nom : </td>
+                        <td>{{col.nom}}</td>
+                    </tr>
+                    <tr>
+                        <td>prenoms: </td>
+                        <td>{{col.prenoms}}</td>
+                    </tr>
+                    <tr>
+                        <td>email: </td>
+                        <td>{{col.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date de Naissance : </td>
+                        <td>{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="col-9">
-        <div class="row">matricule : {{col.matricule}} </div>
-        <div class="row">nom: {{col.nom}}</div>
-        <div class="row">prenoms: {{col.prenoms}}</div>
-        <div class="row">email: {{col.email}}</div>
-        <div class="row">Date de Naissance: {{col.dateDeNaissance}}</div>
+    <div class="row">
+        <div class="col">
+            <a href="javascript:void(0)" class="stretched-link float-right" (click)="creerCollegue()"> Créer un nouveau
+                Collegue </a>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-light float-left" (click)="modifierCollegue()">Modifier</button>
+        </div>
     </div>
 </div>
-<div class="row justify-content-md-center">
-    <div class="col-6">
-<a href=""> Créer un nuveau Collegue </a>
-    </div>
-    <div class="col-6">
-        <button type="button" class="btn btn-light">Modifier</button>
-    </div>
-</div>
-</div>
-
