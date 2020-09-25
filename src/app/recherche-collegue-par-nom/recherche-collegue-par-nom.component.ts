@@ -35,8 +35,11 @@ export class RechercheCollegueParNomComponent implements OnInit {
   }
 
   selectionner(matricule: string): void {
-    this.dateServ.recupererCollegueCourant(matricule)
+    this.dateServ.recupererCollegueCourant(matricule).subscribe(() => { },
+    error => this.erreurTechnique = true)
   }
+
+
 
   ngOnInit(): void {
   }

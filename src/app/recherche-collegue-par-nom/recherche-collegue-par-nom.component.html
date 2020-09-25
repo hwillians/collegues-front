@@ -12,7 +12,7 @@
     <div class="row">
         <ul *ngIf="listMatricules">
             <li *ngFor="let matricule of listMatricules">
-                <button (click)="selectionner(matricule)"> {{matricule}} </button>
+                <button class="btn btn-link" (click)="selectionner(matricule)"> {{matricule}} </button>
             </li>
         </ul>
     </div>

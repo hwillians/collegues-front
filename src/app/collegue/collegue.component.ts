@@ -12,19 +12,18 @@ import { DataService } from '../services/data.service';
 })
 export class CollegueComponent implements OnInit {
 
- col: Collegue  = collegueMock
-  
- ngOnInit(): void {
-    this.dateServ.abonnerCollegueSelectionne().subscribe(
-      collegue => this.col = collegue
-    )
+  col: Collegue
+
+  ngOnInit(): void {
+    this.dateServ.abonnerCollegueSelectionne()
+      .subscribe(collegue => this.col = collegue)
   }
 
   constructor(private dateServ: DataService) { }
-  
+
   affichage = false
   matricule: string
-  
+
   modifierCollegue(): void {
     this.affichage = !this.affichage
   }
