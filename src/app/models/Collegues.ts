@@ -1,12 +1,12 @@
 
 export class Collegue {
 
-    matricule: string
-    nom: string
-    prenoms: string
-    email: string
-    dateDeNaissance: Date
-    photoUrl: String
+    matricule?: string
+    nom?: string
+    prenoms?: string
+    email?: string
+    dateDeNaissance?: Date
+    photoUrl?: String
 
     constructor(matricule, nom, prenoms, email, dateDeNaissance, photoUrl) {
         this.matricule = matricule
