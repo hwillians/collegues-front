@@ -1,17 +1,16 @@
 <div class="container  ">
     <div class="row d-flex justify-content-around align-items-center">
-        <div class="col-12 col-md-4">Rechercher par nom : </div>
-        <div class="col-12 col-md-5">
-            <input type="text" [value]=" ">
+        <div class="col-12 col-lg-4">Rechercher par nom : </div>
+        <div class="col-12 col-lg-5">
+            <input type="text" #nom>
         </div>
-        <div class="col-12 col-md-3 mb-3 mt-3">
-            <button type="button" class="btn btn-light float-left" (click)="rechercherCollegue()">Rechercher</button>
+        <div class="col-12 col-lg-3 mb-3 mt-3">
+            <button type="button" class="btn btn-light float-left" (click)="rechercherCollegue(nom.value)">Rechercher</button>
         </div>
     </div>
     <div class="row">
-        <ul [hidden]="affichage">
+        <ul *ngIf="listMatricules">
             <li *ngFor="let matricule of listMatricules">{{matricule}}</li>
         </ul>
     </div>
-
 </div>
