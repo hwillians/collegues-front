@@ -1,7 +1,9 @@
 
 import { Component, Input, OnInit } from '@angular/core';
+import { collegueMock } from '../mock/collegues.mock';
 
 import { Collegue } from '../models/Collegues';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -10,12 +12,19 @@ import { Collegue } from '../models/Collegues';
 })
 export class CollegueComponent implements OnInit {
 
-  @Input() col: Collegue
+ col: Collegue  = collegueMock
+  
+ ngOnInit(): void {
+    this.dateServ.abonnerCollegueSelectionne().subscribe(
+      collegue => this.col = collegue
+    )
+  }
 
-  constructor() { }
+  constructor(private dateServ: DataService) { }
+  
   affichage = false
-
-
+  matricule: string
+  
   modifierCollegue(): void {
     this.affichage = !this.affichage
   }
@@ -27,8 +36,4 @@ export class CollegueComponent implements OnInit {
   valider() {
     this.affichage = !this.affichage
   }
-
-  ngOnInit(): void {
-  }
-
 }
