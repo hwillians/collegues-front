@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlCollegues:  'https://hel-collegues-api.herokuapp.com/collegues'
 };
