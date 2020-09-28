@@ -1,57 +1,56 @@
 <div class="container ">
     <div class="row ">
-        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-            <img [src]=" " class="img-thumbnail" alt="photo colaborateur" height="300" width="300">
-        </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-md-6">
             <form>
-
-                <div class="row ">
-                    Nom : <input type="text" #champNom="ngModel" name="nom" [(ngModel)]="collegue.nom" required>
+                <div class="form-group row">
+                    <div class="col-12 col-lg-6">Nom :</div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" #champNom="ngModel" name="nom" [(ngModel)]="collegue.nom" required>
+                    </div>
                 </div>
                 <div class="mb-1 bg-warning text-dark" *ngIf="champNom.dirty && champNom.invalid">
                     Le nom est obligatoire {{collegue.nom}} est invalid
                 </div>
 
-
-                <div class="row ">
-                    Prénom : <input type="text" #champPrenoms="ngModel" name="prenoms" [(ngModel)]="collegue.prenoms"
-                        required>
+                <div class="form-group row">
+                    <div class="col-12 col-lg-6">Prénom :</div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" #champPrenoms="ngModel" name="prenoms" [(ngModel)]="collegue.prenoms"
+                            required>
+                    </div>
                 </div>
-
                 <div class="mb-1 bg-warning text-dark" *ngIf="champPrenoms.dirty && champPrenoms.invalid">
                     Le Prénom est obligatoire
                 </div>
 
-                <div class="row ">
-                    Date de naissance : <input type="text" #champDate="ngModel" name="dateDeNaissance"
-                        [(ngModel)]="collegue.dateDeNaissance" required>
+                <div class="form-group row">
+                    <div class="col-12 col-lg-6">Date de naissance :</div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" #champDate="ngModel" name="dateDeNaissance"
+                            [(ngModel)]="collegue.dateDeNaissance" required>
+                    </div>
                 </div>
                 <div class="mb-1 bg-warning text-dark" *ngIf="champDate.dirty && champDate.invalid">
                     La Date de naissance est obligatoire
                 </div>
-                <!-- <div class="row ">
-                    E-mail : <input type="text" #champMail="ngModel" name="email" [(ngModel)]="collegue.email"
-                        required>
-                </div>
-                <div class="mb-1 bg-warning text-dark" *ngIf="champMail.dirty && champMail.invalid">
-                    L'e-mail est obligatoire
-                </div> -->
 
-                <div class="row ">
-                    Url de la Photo : <input type="text" #champPhoto="ngModel" name="photoUrl"
-                        [(ngModel)]="collegue.photoUrl" required minlength="7">
+                <div class="form-group row">
+                    <div class="col-12 col-lg-6">Url de la Photo :</div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" #champPhoto="ngModel" name="photoUrl"
+                            [(ngModel)]="collegue.photoUrl" required minlength="7">
+                    </div>
                 </div>
                 <div class="mb-1 bg-warning text-dark" *ngIf="champPhoto.dirty && champPhoto.invalid">
                     L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
                 </div>
-
             </form>
-
         </div>
-        <div class="row d-flex justify-content-around align-items-center mb-3">
-            <div class="col-12 col-lg-6 d-flex justify-content-center">
-                <button type="button" class="btn btn-light " (click)="creerCollegue()">creer</button>
-
-            </div>
+    </div>
+    <div class="row d-flex justify-content-around align-items-center mb-3">
+        <div class="col-12 col-lg-6">
+            <button type="button" class="btn btn-light " (click)="creerCollegue()">creer</button>
         </div>
+    </div>
+
+    <div *ngIf="erreurTechnique"> {{error}} </div>

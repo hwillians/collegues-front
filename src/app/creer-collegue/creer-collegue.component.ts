@@ -1,11 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
 import { CollegueRequest } from '../models/CollegueRequest';
 import { DataService } from '../services/data.service';
-
-
-
 
 @Component({
   selector: 'app-creer-collegue',
@@ -16,6 +11,9 @@ import { DataService } from '../services/data.service';
 export class CreerCollegueComponent implements OnInit {
 
   collegue: CollegueRequest = {}
+  errorMessage: string
+  erreurTechnique = false;
+  error = 'erreur technique, verifiez les champs';
 
   constructor(private dateServ: DataService) { }
 
@@ -24,11 +22,13 @@ export class CreerCollegueComponent implements OnInit {
 
   creerCollegue(): void {
     this.dateServ.creerCollegue(this.collegue)
-    .subscribe(collegue => this.collegue = collegue,
-      
+      .subscribe(collegue => this.collegue = {},
+        err => this.erreurTechnique = true
       )
-      
-    this.collegue = {}
+
   }
-  //HttpErrorResponse 
+
+
+
+
 }
