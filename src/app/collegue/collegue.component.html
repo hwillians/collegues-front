@@ -1,4 +1,5 @@
 <div *ngIf="col" class="container ">
+    
     <div class="row ">
         <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
             <img [src]="col.photoUrl" class="img-thumbnail" alt="photo colaborateur" height="300" width="300">
@@ -22,28 +23,39 @@
                         <td>Date de naissance : </td>
                         <td>{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
                     </tr>
-                    <tr>
+                    <tr [hidden]="affichage">
                         <td>E-mail : </td>
-                        <td [hidden]="affichage">{{col.email}}</td>
-                        <td [hidden]="!affichage">
-                            <input type="text" [value]="col.email">
-                        </td>
+                        <td>{{col.email}}</td>
                     </tr>
-                    <tr [hidden]="!affichage">
-                        <td>Url de la Photo : </td>
-                        <td>
-                            <input type="text" [value]="col.photoUrl">
-                        </td>
-                    </tr>
-
                 </tbody>
             </table>
+            <form [hidden]="!affichage">
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-6 col-form-label">E-mail :</label>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="col.email"  name="col.email" #champMail="ngModel" class="form-control" id="staticEmail" [value]="col.email" required>
+                    </div>
+                </div>
+                <div class="mb-1 bg-warning text-dark" *ngIf="champMail.dirty && champMail.invalid">
+                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-6 col-form-label">Url de la Photo :</label>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="col.photoUrl"  name="col.photoUrl" #champPhoto="ngModel" class="form-control" id="inputPassword" [value]="col.photoUrl" required minlength="7">
+                    </div>
+                </div>
+                <div class="mb-1 bg-warning text-dark" *ngIf="champPhoto.dirty && champPhoto.invalid">
+                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
+                </div>
+            </form>
         </div>
     </div>
     <div class="row d-flex justify-content-around align-items-center mb-3">
         <div class="col-12 col-lg-6 d-flex justify-content-center">
-            <a href="#" class="stretched-link " (click)="creerCollegue()" [hidden]="affichage"> Créer un nouveau
-                Collegue </a>
+            <a href="#" class="stretched-link " (click)="creerCollegue()" [hidden]="affichage">Créer un nouveau
+                Collegue</a>
         </div>
         <div class="col-12 col-lg-6 d-flex justify-content-center">
             <button type="button" class="btn btn-light " (click)="modifierCollegue()"

@@ -30,6 +30,11 @@ export class CollegueComponent implements OnInit {
   }
 
   valider() {
+
+this.dateServ.actualiserCollegue(this.col.matricule,this.col)
+.subscribe(collegue => this.col = collegue)
+
+    
     this.affichage = !this.affichage
   }
 }

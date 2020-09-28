@@ -25,7 +25,6 @@ export class CreerCollegueComponent implements OnInit {
       .subscribe(collegue => this.collegue = {},
         err => this.erreurTechnique = true
       )
-
   }
 
 
