@@ -5,5 +5,5 @@ export interface CollegueRequest{
   prenoms?: string
   email?: string
   dateDeNaissance?: string
-  photoUrl?: String
+  photoUrl?: string
 }

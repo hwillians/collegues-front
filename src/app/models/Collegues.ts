@@ -6,7 +6,7 @@ export class Collegue {
     prenoms?: string
     email?: string
     dateDeNaissance?: Date
-    photoUrl?: String
+    photoUrl?: string
 
     constructor(matricule, nom, prenoms, email, dateDeNaissance, photoUrl) {
         this.matricule = matricule
