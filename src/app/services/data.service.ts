@@ -1,10 +1,11 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environments/environment'
 import { Collegue } from '../models/Collegues';
-import { catchError, tap } from 'rxjs/operators';
+import { tap,catchError , map} from 'rxjs/operators';
 import { CollegueRequest } from '../models/CollegueRequest';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,12 @@ export class DataService {
       .pipe(tap(collegue => this.subjectMatriculeSelectionne.next(collegue)))
   }
 
-  creerCollegue(collegue:CollegueRequest):Observable<CollegueRequest> {
-   return this.http.post<CollegueRequest>(`${environment.urlCollegues}`,collegue)
-   
-  
+  creerCollegue(collegueback: CollegueRequest): Observable<Collegue> {
+    return this.http.post<CollegueRequest>(`${environment.urlCollegues}`, collegueback)
+    .pipe(
+      map(colBack => new Collegue(collegueback.matricule, collegueback.nom, collegueback.prenom, 
+        new Date(collegueback.dateDeNaissance), collegueback.photoUrl)),
+    )
   }
+
 }
