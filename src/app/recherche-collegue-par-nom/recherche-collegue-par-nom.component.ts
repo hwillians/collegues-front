@@ -15,7 +15,6 @@ export class RechercheCollegueParNomComponent implements OnInit {
   matriculeNonTrouve = false;
   erreurTechnique = false;
 
-
   rechercherCollegue(nom: string): void {
     this.listMatricules = null;
     this.dateServ.rechercherParNom(nom)

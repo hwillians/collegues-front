@@ -8,11 +8,11 @@ export class Collegue {
     dateDeNaissance?: Date
     photoUrl?: String
 
-    constructor(matricule, nom, prenoms, email, dateDeNaissance, photoUrl) {
+    constructor(matricule, nom, prenoms,  dateDeNaissance, photoUrl) {
         this.matricule = matricule
         this.nom = nom
         this.prenoms = prenoms
-        this.email = email
+     
         this.dateDeNaissance = dateDeNaissance
         this.photoUrl = photoUrl
 

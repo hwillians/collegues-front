@@ -3,6 +3,7 @@ export interface CollegueRequest{
  
   nom?: string
   prenoms?: string
-  dateDeNaissance?: Date
+  email?: string
+  dateDeNaissance?: string
   photoUrl?: String
 }
