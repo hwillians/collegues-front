@@ -2,17 +2,21 @@
     <div class="row justify-content-center">
         <h1>Administration Collègue</h1>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
-        </div>
-        <div class="col-12 col-md-7">
-            <app-collegue></app-collegue>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <app-creer-collegue></app-creer-collegue>
-        </div>
-    </div>
+
+    <ul ngbNav class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <a routerLink="/accueil" ngbNavLink>Accueil</a>
+        </li>
+        <li [ngbNavItem]="2">
+            <a routerLink="/galerie" ngbNavLink>Gallerie</a>
+        </li>
+        <li [ngbNavItem]="3">
+            <a routerLink="/apropos" ngbNavLink>A propos</a>
+        </li>
+    </ul>
+
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+
 </div>
