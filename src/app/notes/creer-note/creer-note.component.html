@@ -1,0 +1,10 @@
+<form class="was-validated">
+    <div class="mb-3">
+        <label for="validationTextarea"></label>
+        <textarea #note class="form-control is-invalid" id="validationTextarea" placeholder="Tapez entrée pour enregistre cette note"
+        [value]="exp" required (keyup.enter)="creerNote(note.value)"></textarea>
+        <div class="invalid-feedback">
+            <!-- Please enter a message in the textarea. -->
+        </div>
+    </div>
+</form>

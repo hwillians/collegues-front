@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlCollegues: 'http://localhost:8080//collegues'
+  urlCollegues: 'http://localhost:8080//collegues',
+  urlNotes: 'http://localhost:8080//notes'
 };
 
 

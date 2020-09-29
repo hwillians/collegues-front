@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Collegue } from 'src/app/models/Collegues';
 import { DataService } from 'src/app/services/data.service';
@@ -11,19 +11,20 @@ import { DataService } from 'src/app/services/data.service';
 export class PageCollegueComponent implements OnInit {
 
   collegue: Collegue
-  matriculeRecupere: string = '?'
+
+  matriculeRecupere: string
 
 
-  constructor(private activatedRoute: ActivatedRoute, private dataServ: DataService, private router: Router) { }
+  constructor(public route: ActivatedRoute, private activatedRoute: ActivatedRoute, private dataServ: DataService, private router: Router) { }
 
   ngOnInit(): void {
 
     this.activatedRoute.paramMap.subscribe(params => {
       this.matriculeRecupere = params.get('matricule')
+      
     })
 
-    this.dataServ.abonnerCollegueSelectionne()
-      .subscribe(collegue => this.collegue = collegue)
+    this.dataServ.abonnerCollegueSelectionne().subscribe(collegueB => this.collegue = collegueB)
 
     this.dataServ.recupererCollegueCourant(this.matriculeRecupere).subscribe(() => { })
   }

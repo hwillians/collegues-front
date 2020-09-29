@@ -12,14 +12,25 @@ import { PageAproposComponent } from './pages/page-apropos/page-apropos.componen
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageCollegueComponent } from './pages/page-collegue/page-collegue.component';
+import { CreerNoteComponent } from './notes/creer-note/creer-note.component';
+import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 
 
-export const ROUTES: Routes=[
-  {path: 'accueil', component:PageAccueilComponent},
-  {path:'gallerie', component:PageGallerieComponent},
-  {path:'gallerie/:matricule', component:PageCollegueComponent},
-  {path:'apropos',component:PageAproposComponent},
-  {path:'',pathMatch: 'full', redirectTo: '/accueil'}
+
+export const ROUTES: Routes = [
+  { path: 'accueil', component: PageAccueilComponent },
+  { path: 'gallerie', component: PageGallerieComponent },
+  {
+    path: 'gallerie/:matricule',
+    component: PageCollegueComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: '' },
+      { path: 'notes/creer', component: CreerNoteComponent },
+      { path: 'notes/list', component: ListNotesComponent }
+    ]
+  },
+  { path: 'apropos', component: PageAproposComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ]
 
 @NgModule({
@@ -32,7 +43,8 @@ export const ROUTES: Routes=[
     PageAproposComponent,
     PageAccueilComponent,
     PageCollegueComponent,
-   
+    CreerNoteComponent,
+    ListNotesComponent,
 
   ],
   imports: [

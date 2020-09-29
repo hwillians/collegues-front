@@ -13,6 +13,7 @@ import { CollegueReponseGallerie } from '../models/collegueReponseGallerie';
 })
 export class DataService {
 
+
   constructor(private http: HttpClient) { }
 
   subjectMatriculeSelectionne = new Subject<Collegue>();
