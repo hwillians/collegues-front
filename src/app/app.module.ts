@@ -11,10 +11,13 @@ import { PageGallerieComponent } from './pages/page-gallerie/page-gallerie.compo
 import { PageAproposComponent } from './pages/page-apropos/page-apropos.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PageCollegueComponent } from './pages/page-collegue/page-collegue.component';
+
 
 export const ROUTES: Routes=[
   {path: 'accueil', component:PageAccueilComponent},
-  {path:'galerie', component:PageGallerieComponent},
+  {path:'gallerie', component:PageGallerieComponent},
+  {path:'gallerie/:matricule', component:PageCollegueComponent},
   {path:'apropos',component:PageAproposComponent},
   {path:'',pathMatch: 'full', redirectTo: '/accueil'}
 ]
@@ -28,6 +31,8 @@ export const ROUTES: Routes=[
     PageGallerieComponent,
     PageAproposComponent,
     PageAccueilComponent,
+    PageCollegueComponent,
+   
 
   ],
   imports: [

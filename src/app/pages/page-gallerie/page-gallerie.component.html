@@ -1,9 +1,10 @@
 <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-      <div class="col" *ngFor="let photo of allPhotos">
-        
-        <img [src]="photo.photoUrl" alt="photo de collaborateur photo.matricule" class="img-thumbnail" height="300" width="300">
-      </div>
-     
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <div class="col" *ngFor="let photo of allPhotos">
+      <a [routerLink]="photo.matricule" >
+        <img [src]="photo.photoUrl" alt="photo de collaborateur" class="img-thumbnail" height="300"
+          width="300">
+      </a>
     </div>
   </div>
+</div>

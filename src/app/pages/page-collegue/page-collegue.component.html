@@ -1,0 +1,30 @@
+
+    <div class="row d-flex justify-content-center align-items-center">
+        <img [src]="collegue.photoUrl" class="img-thumbnail" alt="photo colaborateur" height="300" width="300">
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 col-lg-6">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>Matricule :</td>
+                    <td>{{collegue.matricule}}</td>
+                </tr>
+                <tr>
+                    <td>Nom :</td>
+                    <td>{{collegue.nom | uppercase}}</td>
+                </tr>
+                <tr>
+                    <td>Prénoms :</td>
+                    <td>{{collegue.prenoms}}</td>
+                </tr>
+                <tr>
+                    <td>Date de naissance :</td>
+                    <td>{{collegue.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
+                </tr>
+                <tr>
+                    <td>E-mail :</td>
+                    <td>{{collegue.email}}</td>
+                </tr>
+            </tbody>
+        </table>
