@@ -9,11 +9,5 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent {
   title = 'collegues-front';
   
-  links = [
-    { title: 'Accueil', fragment: '/accueil' },
-    { title: 'Gallerie', fragment: '/galerie' },
-    { title: 'A propos', fragment: '/apropos' }
-  ];
-
   constructor(public route: ActivatedRoute) {}
 }

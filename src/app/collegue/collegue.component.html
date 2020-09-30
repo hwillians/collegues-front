@@ -1,55 +1,71 @@
-<div *ngIf="col" class="container ">
-    
-    <div class="row ">
-        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-            <img [src]="col.photoUrl" class="img-thumbnail" alt="photo colaborateur" height="300" width="300">
-        </div>
-        <div class="col-12 col-lg-7">
-            <table class="table table-hover">
-                <tbody>
-                    <tr>
-                        <td>Matricule : </td>
-                        <td>{{col.matricule}}</td>
-                    </tr>
-                    <tr>
-                        <td>Nom : </td>
-                        <td>{{col.nom | uppercase}}</td>
-                    </tr>
-                    <tr>
-                        <td>Prénoms : </td>
-                        <td>{{col.prenoms}}</td>
-                    </tr>
-                    <tr>
-                        <td>Date de naissance : </td>
-                        <td>{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
-                    </tr>
-                    <tr [hidden]="affichage">
-                        <td>E-mail : </td>
-                        <td>{{col.email}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <form [hidden]="!affichage">
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-6 col-form-label">E-mail :</label>
-                    <div class="col-sm-6">
-                        <input type="text" [(ngModel)]="col.email"  name="col.email" #champMail="ngModel" class="form-control" id="staticEmail" [value]="col.email" required>
-                    </div>
-                </div>
-                <div class="mb-1 bg-warning text-dark" *ngIf="champMail.dirty && champMail.invalid">
-                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
-                </div>
+<div *ngIf="col" class="container">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-lg-6 d-flex align-items-center">
+                <img [src]="col.photoUrl" class="card-img" alt="photo colaborateur">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row ">
+                                <p class="col card-text">Matricule : </p>
+                                <p class="col card-text">{{col.matricule}}</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row ">
+                                <p class="col card-text">Nom :</p>
+                                <p class="col card-text">{{col.nom | uppercase}}</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row ">
+                                <p class="col card-text">Prénoms : </p>
+                                <p class="col card-text">{{col.prenoms}}</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row ">
+                                <p class="col card-text">Date de naissance : </p>
+                                <p class="col card-text">{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div [hidden]="affichage" class="row ">
+                                <p class="col card-text">E-mail : </p>
+                                <p class="col card-text">{{col.email}}</p>
+                            </div>
+                        </li>
+                        <form [hidden]="!affichage">
+                            <li class="list-group-item">
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-6 col-form-label">E-mail :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" [(ngModel)]="col.email" name="col.email" #champMail="ngModel"
+                                            class="form-control" id="staticEmail" [value]="col.email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-1 bg-warning text-dark" *ngIf="champMail.dirty && champMail.invalid">
+                                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-6 col-form-label">Url de la Photo :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" [(ngModel)]="col.photoUrl" name="col.photoUrl"
+                                            #champPhoto="ngModel" class="form-control" id="inputPassword"
+                                            [value]="col.photoUrl" required minlength="7">
+                                    </div>
 
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-6 col-form-label">Url de la Photo :</label>
-                    <div class="col-sm-6">
-                        <input type="text" [(ngModel)]="col.photoUrl"  name="col.photoUrl" #champPhoto="ngModel" class="form-control" id="inputPassword" [value]="col.photoUrl" required minlength="7">
-                    </div>
+                                </div>
+                                <div class="mb-1 bg-warning text-dark" *ngIf="champPhoto.dirty && champPhoto.invalid">
+                                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
+                                </div>
+                            </li>
+                        </form>
+                    </ul>
                 </div>
-                <div class="mb-1 bg-warning text-dark" *ngIf="champPhoto.dirty && champPhoto.invalid">
-                    L'e-mail est obligatoire {{collegue.photoUrl}} est invalide
-                </div>
-            </form>
+            </div>
         </div>
     </div>
     <div class="row d-flex justify-content-around align-items-center mb-3">

@@ -27,7 +27,4 @@ export class CreerCollegueComponent implements OnInit {
       )
   }
 
-
-
-
 }

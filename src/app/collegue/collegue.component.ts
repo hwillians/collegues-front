@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Collegue } from '../models/Collegues';
 import { DataService } from '../services/data.service';
 
@@ -31,10 +31,9 @@ export class CollegueComponent implements OnInit {
 
   valider() {
 
-this.dateServ.actualiserCollegue(this.col.matricule,this.col)
-.subscribe(collegue => this.col = collegue)
+    this.dateServ.actualiserCollegue(this.col.matricule, this.col)
+      .subscribe(collegue => this.col = collegue)
 
-    
     this.affichage = !this.affichage
   }
 }
