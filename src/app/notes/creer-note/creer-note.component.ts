@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NoteBack } from 'src/app/models/note-back';
+import { NoteRequest } from 'src/app/models/note-request';
 import { NoteService } from 'src/app/services/note.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class CreerNoteComponent implements OnInit {
     });
   }
   creerNote(text: string) {
-    let noteB: NoteBack = new NoteBack(text, this.matriculeRecupere)
+    let noteB: NoteRequest = { text: text, matriculeCollegue: this.matriculeRecupere }
     this.noteServ.creerNote(noteB).subscribe(note => noteB = null)
     this.exp = null
   }

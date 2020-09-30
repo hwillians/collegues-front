@@ -5,6 +5,7 @@ import { Note } from '../models/note';
 import { environment } from '../../environments/environment'
 import { NoteBack } from '../models/note-back';
 import { map } from 'rxjs/operators';
+import { NoteRequest } from '../models/note-request';
 
 
 @Injectable({
@@ -14,9 +15,9 @@ export class NoteService {
 
   constructor(private http: HttpClient) { }
 
-  creerNote(noteB: NoteBack): Observable<Note> {
-    return this.http.post<NoteBack>(`${environment.urlNotes}`, noteB).pipe(
-      map(colBack => new Note(noteB.text, new Date())
+  creerNote(noteReq: NoteRequest): Observable<Note> {
+    return this.http.post<NoteBack>(`${environment.urlNotes}`, noteReq).pipe(
+      map(noteB => new Note(noteB.id,noteB.text, noteB.date)
       ))
   }
 
