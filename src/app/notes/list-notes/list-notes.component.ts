@@ -21,6 +21,6 @@ export class ListNotesComponent implements OnInit {
     this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN)
   }
   supprimerNote(id: number) {
-    this.noteServ.supprimerNote(id).subscribe()
+    this.noteServ.supprimerNote(id).subscribe(listN => this.listeNotes = listN)
   }
 }

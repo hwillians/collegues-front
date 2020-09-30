@@ -25,7 +25,7 @@ export class NoteService {
     return this.http.get<Note[]>(`${environment.urlNotes}/${matricule}`)
   }
 
-  supprimerNote(id:number){
-    return this.http.delete(`${environment.urlNotes}/${id}`)
+  supprimerNote(id:number): Observable<Note[]>{
+    return this.http.delete<Note[]>(`${environment.urlNotes}/${id}`)
   }
 }
