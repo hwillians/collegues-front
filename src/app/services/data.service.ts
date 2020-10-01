@@ -13,7 +13,6 @@ import { CollegueReponseGallerie } from '../models/collegueReponseGallerie';
 })
 export class DataService {
 
-
   constructor(private http: HttpClient) { }
 
   subjectMatriculeSelectionne = new Subject<Collegue>();
@@ -30,7 +29,6 @@ export class DataService {
     return this.http.get<Collegue>(`${environment.urlCollegues}/${matricule}`)
       .pipe(tap(collegue => this.subjectMatriculeSelectionne.next(collegue)))
   }
-
 
   creerCollegue(collegueback: CollegueRequest): Observable<Collegue> {
     return this.http.post<Collegue>(`${environment.urlCollegues}`, collegueback)
