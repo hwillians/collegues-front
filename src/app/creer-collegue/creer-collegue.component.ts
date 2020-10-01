@@ -21,9 +21,10 @@ export class CreerCollegueComponent implements OnInit {
   }
 
   creerCollegue(): void {
+    alert(this.collegue.nom)
     this.dateServ.creerCollegue(this.collegue)
-      .subscribe(collegue => this.collegue = {},
-        err => this.erreurTechnique = true
+      .subscribe(col=> this.collegue = {},
+      err => this.erreurTechnique = true
       )
   }
 

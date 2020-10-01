@@ -31,11 +31,12 @@ export class DataService {
       .pipe(tap(collegue => this.subjectMatriculeSelectionne.next(collegue)))
   }
 
+
   creerCollegue(collegueback: CollegueRequest): Observable<Collegue> {
-    return this.http.post<CollegueRequest>(`${environment.urlCollegues}`, collegueback)
+    return this.http.post<Collegue>(`${environment.urlCollegues}`, collegueback)
       .pipe(
-        map(colBack => new Collegue(collegueback.matricule, collegueback.nom, collegueback.prenom, ' ',
-          new Date(collegueback.dateDeNaissance), collegueback.photoUrl)),
+      map(colBack => new Collegue(collegueback.matricule, collegueback.nom, collegueback.prenom, collegueback.email,
+        new Date(collegueback.dateDeNaissance), collegueback.photoUrl)),
       )
   }
 
