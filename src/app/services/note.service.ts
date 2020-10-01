@@ -7,7 +7,6 @@ import { NoteBack } from '../models/note-back';
 import { map } from 'rxjs/operators';
 import { NoteRequest } from '../models/note-request';
 
-
 @Injectable({
   providedIn: 'root'
 })

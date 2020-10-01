@@ -8,7 +8,6 @@ import { DataService } from '../services/data.service';
 })
 export class RechercheCollegueParNomComponent implements OnInit {
 
-
   constructor(private dateServ: DataService) { }
 
   listMatricules: string[]
@@ -32,15 +31,11 @@ export class RechercheCollegueParNomComponent implements OnInit {
         () => { }
       )
   }
-
   selectionner(matricule: string): void {
     this.dateServ.recupererCollegueCourant(matricule).subscribe(() => { },
     error => this.erreurTechnique = true)
   }
 
-
-
   ngOnInit(): void {
   }
-
 }

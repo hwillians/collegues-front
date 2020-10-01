@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="!newCollegue" class="row">
     <div class="col">
         <form #etatForm="ngForm">
             <div class="form-group row" [ngClass]="{ 'was-validated' : champNom.dirty}">
@@ -11,7 +11,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group row" [ngClass]="{ 'was-validated' : champPrenoms.dirty}">
                 <label for="prenoms" class="col-md-4 col-form-label">Prénom :</label>
                 <div class="col-md-8">
@@ -22,18 +21,16 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group row" [ngClass]="{ 'was-validated' : champDate.dirty}">
                 <label for="date" class="col-md-4 col-form-label">Date de naissance :</label>
                 <div class="col-md-8">
-                    <input type="date" #champDate="ngModel" [(ngModel)]="collegue.dateDeNaissance" class="form-control" id="date"
-                        name="date" placeholder="2020/12/31" required>
+                    <input type="date" #champDate="ngModel" [(ngModel)]="collegue.dateDeNaissance" class="form-control"
+                        id="date" name="date" placeholder="2020/12/31" required>
                     <div *ngIf="champDate.dirty && champDate.invalid" class="invalid-feedback">
                         La date de naissance est obligatoire.
                     </div>
                 </div>
             </div>
-
             <div class="form-group row" [ngClass]="{ 'was-validated' : champPhoto.dirty}">
                 <label for="photo" class="col-md-4 col-form-label">Url de la Photo :</label>
                 <div class="col-md-8">
@@ -48,9 +45,49 @@
                 {{error}}
             </div>
             <div class="row d-flex justify-content-around align-items-center mb-3">
-                <button [disabled]="etatForm.invalid" (click)="creerCollegue()" class="btn btn-primary">Créer</button>
+                <button [disabled]="etatForm.invalid" (click)="creerCollegue()"  class="btn btn-success">Créer</button>
             </div>
-
         </form>
     </div>
 </div>
+
+<div  *ngIf="newCollegue" class=" row d-flex justify-content-center align-items-center">
+        <div class="card" style="width: 36rem;">
+        <img [src]="newCollegue.photoUrl" class="card-img-top" alt="photo colaborateur" height="300" width="300">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Matricule : </p>
+                        <p class="col card-text">{{newCollegue.matricule}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Nom :</p>
+                        <p class="col card-text">{{newCollegue.nom | uppercase}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Prénoms : </p>
+                        <p class="col card-text">{{newCollegue.prenoms}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Date de naissance : </p>
+                        <p class="col card-text">{{newCollegue.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">E-mail : </p>
+                        <p class="col card-text">{{newCollegue.email}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

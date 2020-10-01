@@ -18,7 +18,23 @@ import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 
 
 export const ROUTES: Routes = [
-  { path: 'accueil', component: PageAccueilComponent },
+  {
+    path: 'accueil', component: PageAccueilComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: '' },
+      {
+        path: 'chercher-collegue', component: RechercheCollegueParNomComponent,
+        children: [
+          { path: '', pathMatch: 'full', redirectTo: '' },
+          { path: 'collegue', component: CollegueComponent },
+
+        ]
+      },
+      {
+        path: 'creer-collegue', component: CreerCollegueComponent,
+      }
+    ]
+  },
   { path: 'gallerie', component: PageGallerieComponent },
   {
     path: 'gallerie/:matricule',

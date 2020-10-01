@@ -1,13 +1,13 @@
 export class NoteBack {
-    
-    id:number
+
+    id: number
     text: string
     matriculeCollegue: string
-    date:Date
+    date: Date
 
-    constructor(id:number,text: any,matriculeCollegue: any){
-       this.id=id
-        this.text=text
+    constructor(id: number, text: any, matriculeCollegue: any) {
+        this.id = id
+        this.text = text
         this.matriculeCollegue = matriculeCollegue
     }
 }

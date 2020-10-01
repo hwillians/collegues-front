@@ -9,19 +9,13 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class PageGallerieComponent implements OnInit {
  
- 
-  
- 
   constructor(private dataServ: DataService) { }
-
   
   allPhotos: CollegueReponseGallerie[] 
-
 
   ngOnInit(): void {
     this.dataServ.recupererPhotos().subscribe(
       list=> this.allPhotos = list
     )
   }
-
 }

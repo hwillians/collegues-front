@@ -33,14 +33,13 @@ export class DataService {
   creerCollegue(collegueback: CollegueRequest): Observable<Collegue> {
     return this.http.post<Collegue>(`${environment.urlCollegues}`, collegueback)
       .pipe(
-      map(colBack => new Collegue(collegueback.matricule, collegueback.nom, collegueback.prenom, collegueback.email,
-        new Date(collegueback.dateDeNaissance), collegueback.photoUrl)),
+        map(collegueback => new Collegue(collegueback.matricule, collegueback.nom, collegueback.prenoms, collegueback.email,
+          new Date(collegueback.dateDeNaissance), collegueback.photoUrl)),
       )
   }
 
   actualiserCollegue(matricule: string, collegue: Collegue): Observable<Collegue> {
     return this.http.patch<Collegue>(`${environment.urlCollegues}/${matricule}`, collegue)
-
   }
 
   recupererPhotos(): Observable<CollegueReponseGallerie[]> {

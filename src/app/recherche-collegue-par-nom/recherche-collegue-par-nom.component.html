@@ -1,28 +1,31 @@
-<div class="container  ">
-    <div class="row d-flex justify-content-around align-items-center">
-        <div class="col-12 col-lg-4">Rechercher par nom :</div>
-        <div class="col-12 col-lg-5">
+<div class="container-fluid">
+    <div class="row d-flex flex-wrap justify-content-start align-items-center">
+        <div class="m-3">Rechercher par nom :</div>
+        <div class="m-3">
             <input type="text" #nom placeholder="Example: De Tal, Perez">
         </div>
-        <div class="col-12 col-lg-3 mb-3 mt-3">
-            <button type="button" class="btn btn-light float-left"
-                (click)="rechercherCollegue(nom.value)">Rechercher</button>
+        <div class="m-3">
+            <button type="button" class="btn btn-light float-left" (click)="rechercherCollegue(nom.value)"
+               >Rechercher</button>
         </div>
     </div>
     <div class="row">
-        <ul *ngIf="listMatricules">
-            <li *ngFor="let matricule of listMatricules">
-                <button class="btn btn-link" (click)="selectionner(matricule)"> {{matricule}} </button>
-            </li>
-        </ul>
+        <div class="col-12 col-lg-4">
+            <ul style="list-style:none" *ngIf="listMatricules">
+                <li *ngFor="let matricule of listMatricules">
+                    <button class="btn btn-link" (click)="selectionner(matricule)"  routerLink="collegue"> {{matricule}} </button>
+                </li>
+            </ul>
+        </div>
+
+        <div *ngIf="matriculeNonTrouve" class="alert alert-warning" role="alert">
+            Ce nom ne correspond à aucun collègue !
+        </div>
+        <div *ngIf="erreurTechnique" class="alert alert-danger" role="alert">
+            Oopss !!!!!
+        </div>
+        <div class="col-12 col-lg-8">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-
-    <div *ngIf="matriculeNonTrouve" class="alert alert-warning" role="alert">
-        Ce nom ne correspond à aucun collègue !
-      </div>
-      <div *ngIf="erreurTechnique" class="alert alert-danger" role="alert">
-        Oopss !!!!!
-      </div>
-      
-
 </div>

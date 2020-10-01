@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CollegueRequest } from '../models/CollegueRequest';
+import { Collegue } from '../models/Collegues';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { DataService } from '../services/data.service';
 export class CreerCollegueComponent implements OnInit {
 
   collegue: CollegueRequest = {}
+  newCollegue : Collegue
   errorMessage: string
   erreurTechnique = false;
   error = 'erreur technique, verifiez les champs';
@@ -21,10 +23,9 @@ export class CreerCollegueComponent implements OnInit {
   }
 
   creerCollegue(): void {
-    alert(this.collegue.nom)
     this.dateServ.creerCollegue(this.collegue)
-      .subscribe(col=> this.collegue = {},
-      err => this.erreurTechnique = true
+      .subscribe(col =>  this.newCollegue = col,
+        err => this.erreurTechnique = true
       )
   }
 

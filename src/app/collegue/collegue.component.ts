@@ -25,10 +25,6 @@ export class CollegueComponent implements OnInit {
     this.affichage = !this.affichage
   }
 
-  creerCollegue(): void {
-    alert('Création d’un nouveau collègue')
-  }
-
   valider() {
 
     this.dateServ.actualiserCollegue(this.col.matricule, this.col)

@@ -1,5 +1,4 @@
-export interface CollegueReponseGallerie{
-  
-  matricule:string
-  photoUrl:string
+export interface CollegueReponseGallerie {
+  matricule: string
+  photoUrl: string
 }

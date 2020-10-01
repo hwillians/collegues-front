@@ -1,40 +1,50 @@
-<div class="row d-flex justify-content-center align-items-center">
-    <img [src]="collegue?.photoUrl" class="img-thumbnail" alt="photo colaborateur" height="300" width="300">
+<div class=" row d-flex justify-content-center align-items-center">
+    <div class="card" style="width: 25rem;">
+        <img [src]="collegue.photoUrl" class="card-img-top" alt="photo colaborateur" height="300" width="300">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Matricule : </p>
+                        <p class="col card-text">{{collegue.matricule}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Nom :</p>
+                        <p class="col card-text">{{collegue.nom | uppercase}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Prénoms : </p>
+                        <p class="col card-text">{{collegue.prenoms}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">Date de naissance : </p>
+                        <p class="col card-text">{{collegue.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row ">
+                        <p class="col card-text">E-mail : </p>
+                        <p class="col card-text">{{collegue.email}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="row d-flex justify-content-center align-items-center">
-    <div class="col-12 col-lg-6">
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td>Matricule :</td>
-                    <td>{{collegue?.matricule}}</td>
-                </tr>
-                <tr>
-                    <td>Nom :</td>
-                    <td>{{collegue?.nom | uppercase}}</td>
-                </tr>
-                <tr>
-                    <td>Prénoms :</td>
-                    <td>{{collegue?.prenoms}}</td>
-                </tr>
-                <tr>
-                    <td>Date de naissance :</td>
-                    <td>{{collegue?.dateDeNaissance | date:'dd/MM/yyyy'}}</td>
-                </tr>
-                <tr>
-                    <td>E-mail :</td>
-                    <td>{{collegue?.email}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <ul ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
-            <li ngbDropdown class="nav-item">
-                <h3> <a href (click)="false" class="nav-link" ngbDropdownToggle>Notes</a> </h3>
-                <div ngbDropdownMenu>
-                    <button ngbDropdownItem routerLink="notes/creer">Créer une Note</button>
-                    <button ngbDropdownItem routerLink="notes/list">Liste de notes</button>
-                </div>
-            </li>
-        </ul>
 
-        <router-outlet></router-outlet>
+<ul ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
+    <li ngbDropdown class="nav-item">
+        <h3> <a href (click)="false" class="nav-link" ngbDropdownToggle>Notes</a> </h3>
+        <div ngbDropdownMenu>
+            <button ngbDropdownItem routerLink="notes/creer">Créer une Note</button>
+            <button ngbDropdownItem routerLink="notes/list">Liste de notes</button>
+        </div>
+    </li>
+</ul>
+<router-outlet></router-outlet>
