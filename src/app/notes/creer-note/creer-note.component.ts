@@ -17,29 +17,21 @@ export class CreerNoteComponent implements OnInit {
   matriculeRecupere: string
 
   listeNotes: Note[]
- 
-  myNote: Note = {id : 0, text :"",date : new Date()}
-  
+
+  myNote: Note = { id: 0, text: "", date: new Date() }
+
 
   ngOnInit(): void {
     this.myNote.text = ""
     this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN)
   }
 
-  handleKeyUp(){
-    
-       this.creerNote();
-       this.myNote.text = "";
-    
- }
-
   creerNote() {
     let noteB: NoteRequest = { text: this.myNote.text, matriculeCollegue: this.matriculeRecupere }
     this.noteServ.creerNote(noteB).subscribe(() => {
       this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN);
-      this.myNote = {id : 0, text :"",date : new Date()}
-    }
-    )
+      this.myNote = { id: 0, text: "", date: new Date() }
+    })
   }
 
   supprimerNote(id: number) {

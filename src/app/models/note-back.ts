@@ -1,5 +1,4 @@
 export class NoteBack {
-
     id: number
     text: string
     matriculeCollegue: string

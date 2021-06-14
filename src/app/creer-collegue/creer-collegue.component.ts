@@ -12,7 +12,7 @@ import { DataService } from '../services/data.service';
 export class CreerCollegueComponent implements OnInit {
 
   collegue: CollegueRequest = {}
-  newCollegue : Collegue
+  newCollegue: Collegue
   errorMessage: string
   erreurTechnique = false;
   error = 'erreur technique, verifiez les champs';
@@ -21,11 +21,10 @@ export class CreerCollegueComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
-  creerCollegue(): void {
 
+  creerCollegue(): void {
     this.dateServ.creerCollegue(this.collegue)
-      .subscribe(col =>  this.newCollegue = col,
+      .subscribe(col => this.newCollegue = col,
         err => this.erreurTechnique = true
       )
   }

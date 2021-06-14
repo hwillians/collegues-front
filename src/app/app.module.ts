@@ -13,7 +13,6 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
 import { RouterModule, Routes } from '@angular/router';
 import { PageCollegueComponent } from './pages/page-collegue/page-collegue.component';
 import { CreerNoteComponent } from './notes/creer-note/creer-note.component';
-import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 
 export const ROUTES: Routes = [
   {
@@ -38,8 +37,7 @@ export const ROUTES: Routes = [
     component: PageCollegueComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '' },
-      { path: 'notes/creer', component: CreerNoteComponent },
-      { path: 'notes/list', component: ListNotesComponent }
+      { path: 'notes/creer', component: CreerNoteComponent }
     ]
   },
   { path: 'apropos', component: PageAproposComponent },
@@ -57,7 +55,6 @@ export const ROUTES: Routes = [
     PageAccueilComponent,
     PageCollegueComponent,
     CreerNoteComponent,
-    ListNotesComponent,
   ],
   imports: [
     BrowserModule,
