@@ -24,8 +24,8 @@
             <div class="form-group row" [ngClass]="{ 'was-validated' : champDate.dirty}">
                 <label for="date" class="col-md-4 col-form-label">Date de naissance :</label>
                 <div class="col-md-8">
-                    <input type="date" #champDate="ngModel" [(ngModel)]="collegue.dateDeNaissance" class="form-control"
-                        id="date" name="date" placeholder="2020/12/31" required>
+                    <input type="date" #champDate="ngModel" [(ngModel)]="collegue.dateDeNaissance " class="form-control"
+                        id="date" name="date" placeholder="2020-12-31" required>
                     <div *ngIf="champDate.dirty && champDate.invalid" class="invalid-feedback">
                         La date de naissance est obligatoire.
                     </div>

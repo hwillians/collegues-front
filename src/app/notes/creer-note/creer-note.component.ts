@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NoteBack } from 'src/app/models/note-back';
+import { Note } from 'src/app/models/note';
 import { NoteRequest } from 'src/app/models/note-request';
 import { NoteService } from 'src/app/services/note.service';
 
@@ -13,18 +13,36 @@ export class CreerNoteComponent implements OnInit {
 
   constructor(private noteServ: NoteService, private activatedRoute: ActivatedRoute) { }
 
-  exp: string = ''
-
+  @Input()
   matriculeRecupere: string
 
+  listeNotes: Note[]
+ 
+  myNote: Note = {id : 0, text :"",date : new Date()}
+  
+
   ngOnInit(): void {
-    this.activatedRoute.parent.paramMap.subscribe(params => {
-      this.matriculeRecupere = params.get('matricule');
-    });
+    this.myNote.text = ""
+    this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN)
   }
-  creerNote(text: string) {
-    let noteB: NoteRequest = { text: text, matriculeCollegue: this.matriculeRecupere }
-    this.noteServ.creerNote(noteB).subscribe(note => noteB = null)
-    this.exp = null
+
+  handleKeyUp(){
+    
+       this.creerNote();
+       this.myNote.text = "";
+    
+ }
+
+  creerNote() {
+    let noteB: NoteRequest = { text: this.myNote.text, matriculeCollegue: this.matriculeRecupere }
+    this.noteServ.creerNote(noteB).subscribe(() => {
+      this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN);
+      this.myNote = {id : 0, text :"",date : new Date()}
+    }
+    )
+  }
+
+  supprimerNote(id: number) {
+    this.noteServ.supprimerNote(id).subscribe(listN => this.listeNotes = listN)
   }
 }

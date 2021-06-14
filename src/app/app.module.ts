@@ -15,8 +15,6 @@ import { PageCollegueComponent } from './pages/page-collegue/page-collegue.compo
 import { CreerNoteComponent } from './notes/creer-note/creer-note.component';
 import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 
-
-
 export const ROUTES: Routes = [
   {
     path: 'accueil', component: PageAccueilComponent,
@@ -27,7 +25,6 @@ export const ROUTES: Routes = [
         children: [
           { path: '', pathMatch: 'full', redirectTo: '' },
           { path: 'collegue', component: CollegueComponent },
-
         ]
       },
       {
@@ -61,14 +58,13 @@ export const ROUTES: Routes = [
     PageCollegueComponent,
     CreerNoteComponent,
     ListNotesComponent,
-
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]

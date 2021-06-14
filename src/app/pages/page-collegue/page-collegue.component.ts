@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class PageCollegueComponent implements OnInit {
 
-  collegue: Collegue
+  collegue: Collegue 
 
   matriculeRecupere: string
 
@@ -21,7 +21,6 @@ export class PageCollegueComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(params => {
       this.matriculeRecupere = params.get('matricule')
-      
     })
 
     this.dataServ.abonnerCollegueSelectionne().subscribe(collegueB => this.collegue = collegueB)

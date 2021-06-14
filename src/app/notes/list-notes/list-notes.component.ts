@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Note } from 'src/app/models/note';
 import { NoteService } from 'src/app/services/note.service';
@@ -9,15 +9,16 @@ import { NoteService } from 'src/app/services/note.service';
   styleUrls: ['./list-notes.component.css']
 })
 export class ListNotesComponent implements OnInit {
+  @Input()
   matriculeRecupere: string
   listeNotes: Note[]
 
   constructor(private noteServ: NoteService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.parent.paramMap.subscribe(params => {
+ /*    this.activatedRoute.parent.paramMap.subscribe(params => {
       this.matriculeRecupere = params.get('matricule');
-    });
+    }); */
     this.noteServ.listerNotes(this.matriculeRecupere).subscribe(listN => this.listeNotes = listN)
   }
   supprimerNote(id: number) {

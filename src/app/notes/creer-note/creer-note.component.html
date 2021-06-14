@@ -1,10 +1,26 @@
-<form class="was-validated">
+<form #etatForm="ngForm">
     <div class="mb-3">
-        <label for="validationTextarea"></label>
-        <textarea #note class="form-control is-invalid" id="validationTextarea" placeholder="Tapez entrée pour enregistre cette note"
-        [value]="exp" required (keyup.enter)="creerNote(note.value)"></textarea>
-        <div class="invalid-feedback">
-            <!-- Please enter a message in the textarea. -->
+        <div class="form-group row" [ngClass]="{ 'was-validated' : note.dirty}">
+            <textarea #note="ngModel" [(ngModel)]="myNote.text" class="form-control" id="note" name="note"
+                placeholder="Tapez entrée pour enregistre cette note" required
+                (keyup.enter)="creerNote()" ></textarea>
+            <div *ngIf="note.dirty && note.invalid" class="invalid-feedback">
+                La note ne peux pas être vide
+            </div>
         </div>
     </div>
 </form>
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let note of listeNotes" style="color: black;">
+
+        <div class="card">
+            <p class="card-header text-right">{{note.date|date:'dd/MM/yyyy - HH:mm:ss'}}</p>
+            <div class="card-body">
+                <p class="card-text">{{note.text}}</p>
+            </div>
+        </div>
+        <button (click)="supprimerNote(note.id )" class="btn btn-link btn-sm float-right mt-2">Supprimer</button>
+
+    </li>
+</ul>

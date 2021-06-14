@@ -21,8 +21,9 @@ export class CreerCollegueComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
   creerCollegue(): void {
+
     this.dateServ.creerCollegue(this.collegue)
       .subscribe(col =>  this.newCollegue = col,
         err => this.erreurTechnique = true

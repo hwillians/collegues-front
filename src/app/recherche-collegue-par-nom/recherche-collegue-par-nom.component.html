@@ -5,25 +5,28 @@
             <input type="text" #nom placeholder="Example: De Tal, Perez">
         </div>
         <div class="m-3">
-            <button type="button" class="btn btn-light float-left" (click)="rechercherCollegue(nom.value)"
-               >Rechercher</button>
+            <button type="button" class="btn btn-light float-left"
+                (click)="rechercherCollegue(nom.value)">Rechercher</button>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-lg-4">
             <ul style="list-style:none" *ngIf="listMatricules">
                 <li *ngFor="let matricule of listMatricules">
-                    <button class="btn btn-link" (click)="selectionner(matricule)"  routerLink="collegue"> {{matricule}} </button>
+                    <button class="btn btn-link" (click)="selectionner(matricule)" routerLink="collegue"> {{matricule}}
+                    </button>
                 </li>
             </ul>
         </div>
 
         <div *ngIf="matriculeNonTrouve" class="alert alert-warning" role="alert">
-            Ce nom ne correspond à aucun collègue !
+            Ce nom ne correspond pas à aucun collègue !
         </div>
+
         <div *ngIf="erreurTechnique" class="alert alert-danger" role="alert">
             Oopss !!!!!
         </div>
+        
         <div class="col-12 col-lg-8">
             <router-outlet></router-outlet>
         </div>
